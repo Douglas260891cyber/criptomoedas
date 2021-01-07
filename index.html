@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criptomoedas</title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    //Minha api key
+    var apikey = {
+      key: "f49c5fae-e252-48c5-80d7-5d86f2c30425",
+    };
+    //Obter requisição de busca
+    fetch(
+      "https://pro-api.coinmarketcap.com/v1/criptocurrency/map?CMC_PRO_API_KEY=" +
+        apikey.key
+    )
+      .then((response) => {
+        if (!response.ok)
+          throw new Error(
+            "Erro ao executar a requisição, status " + response.status
+          );
+        return response.json();
+      })
+      .then((api) => {
+        console.log(api);
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  </script>
+</html>
